@@ -8,6 +8,16 @@ public class EmployeeDto {
     private String empCode ;
     private String companyName ;
 
+    public EmployeeDto() {
+
+    }
+
+    public EmployeeDto(String empEmail, String empName, String empCode, String companyName) {
+        this.empEmail = empEmail;
+        this.empName = empName;
+        this.empCode = empCode;
+        this.companyName = companyName;
+    }
 
     public Long getId() {
         return id;
