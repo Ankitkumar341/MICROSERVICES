@@ -4,7 +4,7 @@ package com.employee.model.entity;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "emplyees")
+@Table(name = "employees")
 public class Employee {
 
     @Id
