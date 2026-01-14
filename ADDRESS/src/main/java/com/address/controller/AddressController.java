@@ -30,5 +30,29 @@ public class AddressController {
         List<AddressDto> response =  addressService.saveAddress(addressRequest);
        return  new ResponseEntity<>(response , HttpStatus.CREATED);
     }
+    @PutMapping("/update")
+    public  ResponseEntity<List<AddressDto>> updateAddress( @RequestBody AddressRequest addressRequest ){
+
+        List<AddressDto> response =  addressService.saveAddress(addressRequest);
+        return  new ResponseEntity<>(response , HttpStatus.CREATED);
+    }
+
+    @GetMapping("/addressByID/{addressId}")
+    public  ResponseEntity<AddressDto> getSingleAddress (@PathVariable Long addressId){
+        AddressDto singleAddress = addressService.getSingleAddress(addressId);
+        return new ResponseEntity<>(singleAddress,HttpStatus.FOUND);
+    }
+
+    @GetMapping("/getAll")
+    public ResponseEntity<List<AddressDto>> getAllAddress(){
+        List<AddressDto> allAddress = addressService.getAllAddress();
+        return new ResponseEntity<>(allAddress,HttpStatus.OK);
+
+    }
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity< String> deleteAddress(@PathVariable Long id){
+        addressService.deleteAddress(id);
+        return new ResponseEntity<>("Deleted SuccessFully",HttpStatus.OK);
+    }
 
 }
